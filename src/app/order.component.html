@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <td>name</td>
+    <td>preis</td>
+  </thead>
+  <tr *ngFor="let pizza of pizzas">
+    <td>{{pizza.name}}</td>
+    <td>{{pizza.price}}</td>
+  </tr>
+</table>
+
+<h3>bestellung <small>an: {{ order.email }}</small></h3>
+<input type="text" [(ngModel)]="order.email">
+<ul>
+  <app-orderItem *ngFor="let orderItem of order.orderItems" [orderItem]="orderItem" (orderAmountChanged)="orderAmountChanged($event)"></app-orderItem>
+  <li><strong>total: {{ order.orderTotal }} Fr.</strong></li>
+</ul>
+<button type="button" (click)="submitOrder()">Bestellen</button>

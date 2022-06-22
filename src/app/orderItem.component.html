@@ -1,0 +1,4 @@
+<li>
+  <input type="number" [(ngModel)]="orderItem.amount" (change)="amountChanged()">
+  {{ orderItem.pizza.name}} x{{ orderItem.amount }} - {{orderItem.pizza.price * orderItem.amount}} Fr.
+</li>
